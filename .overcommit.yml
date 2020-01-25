@@ -1,0 +1,105 @@
+CommitMsg:
+  ALL:
+    requires_files: false
+    quiet: false
+
+  EmptyMessage:
+    enabled: true
+    description: 'Check for empty commit message'
+    quiet: true
+
+  ForbiddenBranches:
+    enabled: true
+    description: 'Do not commit directly to these branches, use Pull Requests'
+    branch_patterns:
+      - master
+      - develop
+
+  TextWidth:
+    enabled: true
+    description: 'Check text width'
+    max_subject_width: 60
+    min_subject_width: 0
+    max_body_width: 72
+
+  TrailingPeriod:
+    enabled: true
+    description: 'Check for trailing periods in subject'
+
+PreCommit:
+  ALL:
+    on_warn: fail
+
+  AuthorEmail:
+    enabled: true
+    description: 'Check author email'
+    requires_files: false
+    required: true
+    quiet: true
+    pattern: '^[^@]+@.*$'
+
+  AuthorName:
+    enabled: true
+    description: 'Check for author name'
+    requires_files: false
+    required: true
+    quiet: true
+
+  BundleCheck:
+    enabled: true
+    description: 'Check Gemfile dependencies'
+    required_executable: 'bundle'
+    flags: ['check']
+    install_command: 'gem install bundler'
+    include:
+      - 'Gemfile'
+      - 'Gemfile.lock'
+      - '*.gemspec'
+
+  BundleAudit:
+    enabled: true
+    description: 'Check for vulnerable versions of gems'
+    required_executable: 'bundle-audit'
+    install_command: 'gem install bundler-audit'
+
+  Brakeman:
+    enabled: true
+    command: ['bundle', 'exec', 'brakeman']
+
+  Fasterer:
+    enabled: true
+    description: 'Analyzing for potential speed improvements'
+    required_executable: 'fasterer'
+    install_command: 'gem install fasterer'
+    include: '/*.rb'
+    command: ['bundle', 'exec', 'fasterer']
+
+  MergeConflicts:
+    enabled: true
+    description: 'Check for merge conflicts'
+    quiet: true
+    required_executable: 'grep'
+    flags: ['-IHn', "^<<<<<<<[ \t]"]
+
+  RailsBestPractices:
+    enabled: true
+    description: 'Analyze with RailsBestPractices'
+    required_executable: 'rails_best_practices'
+    flags: ['--without-color']
+    install_command: 'gem install rails_best_practices'
+    command: ['bundle', 'exec', 'rails_best_practices', '.', '-c', 'config/rails_best_practices.yml']
+
+  RuboCop:
+    enabled: true
+    description: 'Analyze with RuboCop'
+    required_executable: 'rubocop'
+    flags: ['--format=emacs', '--force-exclusion', '--display-cop-names']
+    install_command: 'gem install rubocop'
+    include:
+      - '/*.gemspec'
+      - '/*.rake'
+      - '/*.rb'
+      - '/*.ru'
+      - '/Gemfile'
+      - '**/Rakefile'
+    command: ['bundle', 'exec', 'rubocop']
