@@ -16,6 +16,11 @@ gem 'rack-cors'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'dotenv-rails'
+  gem 'factory_bot_rails'
+  gem 'ffaker', '~> 2.13.0'
+  gem 'pry-rails', '~> 0.3.9'
+  gem 'rspec-rails'
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
 end
@@ -23,9 +28,11 @@ end
 group :development do
   gem 'brakeman'
   gem 'bundler-audit'
+  gem 'database_cleaner'
   gem 'fasterer'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'rails_best_practices'
+  gem 'rspec_junit_formatter'
   gem 'rubocop', '~> 0.75.1', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'

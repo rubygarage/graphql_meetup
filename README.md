@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### ENV variables
 
-Things you may want to cover:
+Create `env.*.local` files for development and test environments based on `env.*.local.example` files.
 
-* Ruby version
+#### Database
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Run `bundle exec rails db:create db:migrate db:seed` to create the database and fill it with seeds.
