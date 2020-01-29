@@ -1,11 +1,7 @@
 # frozen_string_literal: true
 
 module Types
-  class MutationType < Types::BaseObject
-    field :test_field, String, null: false, description: 'An example field added by the generator'
-
-    def test_field
-      'Hello World'
-    end
+  class MutationType < Types::Base::Object
+    field :user_sign_up, mutation: Mutations::User::SignUp
   end
 end

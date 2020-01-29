@@ -6,7 +6,7 @@ class GraphQLController < ApplicationController
 
     context = { current_user: current_user }
 
-    result = GraphqlMeetupSchema.execute(
+    result = GraphQLMeetupSchema.execute(
       query,
       variables: ensure_hash(variables),
       context: context,

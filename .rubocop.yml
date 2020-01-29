@@ -13,6 +13,7 @@ Metrics/BlockLength:
   Exclude:
     - 'spec/concepts/**/*'
     - 'spec/graphql/**/*'
+    - 'app/graphql/errors.rb'
 
 Metrics/LineLength:
   Max: 120

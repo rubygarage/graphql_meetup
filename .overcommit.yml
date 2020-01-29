@@ -103,3 +103,7 @@ PreCommit:
       - '/Gemfile'
       - '**/Rakefile'
     command: ['bundle', 'exec', 'rubocop']
+
+  UpdateModelAnnotations:
+    enabled: true
+    command: ['bundle', 'exec', 'annotate --models && git add app/models spec/factories']

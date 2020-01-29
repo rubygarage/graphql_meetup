@@ -27,3 +27,7 @@
 
 # Ignore gems installed with rbenv gemset
 /.gems/*
+
+/config/credentials/development.key
+
+/config/credentials/test.key
