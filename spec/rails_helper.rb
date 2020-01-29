@@ -21,6 +21,9 @@ end
 Dir['./spec/support/**/*.rb'].sort.each { |f| require f }
 
 RSpec.configure do |config|
+  config.include GraphQL::RequestHelpers, type: :request
+  config.include GraphQL::MutationsHelper, type: :request
+
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
   config.use_transactional_fixtures = false

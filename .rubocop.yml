@@ -9,8 +9,31 @@ AllCops:
     - 'vendor/**/*'
     - 'bin/bundle'
 
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/concepts/**/*'
+    - 'spec/graphql/**/*'
+
 Metrics/LineLength:
   Max: 120
+
+Metrics/MethodLength:
+  Max: 20
+  Exclude:
+    - 'spec/support/graphql/mutation_helpers/*'
+    - 'spec/support/graphql/query_helpers/*'
+
+RSpec/MultipleExpectations:
+  Exclude:
+    - 'spec/concepts/**/*'
+    - 'spec/graphql/**/*'
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+  EnforcedStyle: nested
+  SupportedStyles:
+    - nested
+    - compact
 
 Style/Documentation:
   Enabled: false
