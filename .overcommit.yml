@@ -74,6 +74,10 @@ PreCommit:
     include: '/*.rb'
     command: ['bundle', 'exec', 'fasterer']
 
+  GenerateGraphQLSchema:
+    enabled: true
+    command: ['bundle', 'exec', 'rake graphql:schema:idl && git add schema.graphql']  
+
   MergeConflicts:
     enabled: true
     description: 'Check for merge conflicts'

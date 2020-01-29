@@ -1,0 +1,63 @@
+"""
+translation missing: en.graphql.types.auth_token.desc
+"""
+type AuthTokenType {
+  """
+  translation missing: en.graphql.types.auth_token.fields.access
+  """
+  access: String!
+
+  """
+  translation missing: en.graphql.types.auth_token.fields.csrf
+  """
+  csrf: String!
+
+  """
+  translation missing: en.graphql.types.auth_token.fields.refresh
+  """
+  refresh: String!
+}
+
+type Mutation {
+  """
+  translation missing: en.graphql.mutations.user.sign_up.desc
+  """
+  userSignUp(input: UserSignUpInput!): AuthTokenType!
+}
+
+type Query {
+  """
+  An example field added by the generator
+  """
+  testField: String!
+}
+
+"""
+translation missing: en.graphql.inputs.user_sign_up_input.desc
+"""
+input UserSignUpInput {
+  """
+  translation missing: en.graphql.inputs.user_sign_up_input.args.email
+  """
+  email: String!
+
+  """
+  translation missing: en.graphql.inputs.user_sign_up_input.args.first_name
+  """
+  firstName: String!
+
+  """
+  translation missing: en.graphql.inputs.user_sign_up_input.args.last_name
+  """
+  lastName: String!
+
+  """
+  translation missing: en.graphql.inputs.user_sign_up_input.args.password
+  """
+  password: String!
+
+  """
+  translation missing: en.graphql.inputs.user_sign_up_input.args.password_confirmation
+  """
+  passwordConfirmation: String!
+}
