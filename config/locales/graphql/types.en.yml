@@ -1,0 +1,20 @@
+en:
+  graphql:
+    types:
+      connection_base_type:
+        node_ids: 'List of connected node identifiers'
+        total_count: 'Total # of objects returned from query'
+        total_page_count: 'Total # of pages, based on total count and pagesize'
+        current_page: 'Number of current page'
+      common:
+        fields:
+          id: ID
+          created_at: Created at
+          updated_at: Updated at
+          placed_at: Placed at
+      auth_token:
+        desc: Auth token provider
+        fields:
+          csrf: CSRF protection token
+          access: Access JWT token
+          refresh: JWT token for refreshing access token

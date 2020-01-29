@@ -36,6 +36,10 @@ module GraphqlMeetup
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
+    config.i18n.load_path += Dir[
+      Rails.root.join('config/locales/graphql/*.{rb,yml}').to_s
+    ]
+
     config.eager_load_paths << Rails.root.join('lib')
   end
 end

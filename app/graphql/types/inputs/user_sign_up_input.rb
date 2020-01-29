@@ -3,7 +3,7 @@
 module Types
   module Inputs
     class UserSignUpInput < ::Types::Base::InputObject
-      I18N_PATH = 'graphql.inputs.user_sign_up_input'
+      I18N_PATH = 'graphql.inputs.user.sign_up_input'
 
       graphql_name 'UserSignUpInput'
 

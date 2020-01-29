@@ -1,26 +1,26 @@
 """
-translation missing: en.graphql.types.auth_token.desc
+Auth token provider
 """
 type AuthTokenType {
   """
-  translation missing: en.graphql.types.auth_token.fields.access
+  Access JWT token
   """
   access: String!
 
   """
-  translation missing: en.graphql.types.auth_token.fields.csrf
+  CSRF protection token
   """
   csrf: String!
 
   """
-  translation missing: en.graphql.types.auth_token.fields.refresh
+  JWT token for refreshing access token
   """
   refresh: String!
 }
 
 type Mutation {
   """
-  translation missing: en.graphql.mutations.user.sign_up.desc
+  Sign up a user
   """
   userSignUp(input: UserSignUpInput!): AuthTokenType!
 }
@@ -33,31 +33,31 @@ type Query {
 }
 
 """
-translation missing: en.graphql.inputs.user_sign_up_input.desc
+Sign up user via email
 """
 input UserSignUpInput {
   """
-  translation missing: en.graphql.inputs.user_sign_up_input.args.email
+  User's account email
   """
   email: String!
 
   """
-  translation missing: en.graphql.inputs.user_sign_up_input.args.first_name
+  User's first name
   """
   firstName: String!
 
   """
-  translation missing: en.graphql.inputs.user_sign_up_input.args.last_name
+  User's last name
   """
   lastName: String!
 
   """
-  translation missing: en.graphql.inputs.user_sign_up_input.args.password
+  User's account password
   """
   password: String!
 
   """
-  translation missing: en.graphql.inputs.user_sign_up_input.args.password_confirmation
+  User's account password confirmation
   """
   passwordConfirmation: String!
 }

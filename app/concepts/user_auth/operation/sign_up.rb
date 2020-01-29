@@ -15,7 +15,7 @@ module UserAuth::Operation
 
     step :generate_auth_token
 
-    def create_profile!(ctx, model:, params:, **)
+    def create_profile!(_ctx, model:, params:, **)
       profile_params = params.slice(:first_name, :last_name).merge(id: model.id)
 
       model.create_user_profile!(profile_params)
