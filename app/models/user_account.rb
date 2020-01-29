@@ -11,7 +11,6 @@
 #  updated_at      :datetime         not null
 #
 
-
 class UserAccount < ApplicationRecord
   has_secure_password
 

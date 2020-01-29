@@ -12,7 +12,6 @@
 #  user_account_id :bigint           not null
 #
 
-
 class UserProfile < ApplicationRecord
   belongs_to :user_account
 end

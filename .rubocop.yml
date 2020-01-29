@@ -12,7 +12,7 @@ AllCops:
 Metrics/BlockLength:
   Exclude:
     - 'spec/concepts/**/*'
-    - 'spec/graphql/**/*'
+    - 'spec/requests/**/*'
     - 'app/graphql/errors.rb'
 
 Metrics/LineLength:
@@ -24,11 +24,6 @@ Metrics/MethodLength:
     - 'spec/support/graphql/mutation_helpers/*'
     - 'spec/support/graphql/query_helpers/*'
 
-RSpec/MultipleExpectations:
-  Exclude:
-    - 'spec/concepts/**/*'
-    - 'spec/graphql/**/*'
-
 Style/ClassAndModuleChildren:
   Enabled: false
   EnforcedStyle: nested
@@ -38,3 +33,14 @@ Style/ClassAndModuleChildren:
 
 Style/Documentation:
   Enabled: false
+
+# RSpec cops
+RSpec/ExampleLength:
+  Exclude:
+    - 'spec/concepts/**/*'
+    - 'spec/requests/**/*'
+
+RSpec/MultipleExpectations:
+  Exclude:
+    - 'spec/concepts/**/*'
+    - 'spec/requests/**/*'

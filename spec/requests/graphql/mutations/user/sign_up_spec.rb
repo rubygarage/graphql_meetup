@@ -32,7 +32,7 @@ describe 'mutation userSignup', type: :request do
         variables: variables(email: "  #{user_account.email}")
       )
 
-      expect(response).to match_schema(ErrorSchema)
+      expect(response).to match_schema(UserInputErrorSchema)
       expect(response.status).to be(200)
     end
   end

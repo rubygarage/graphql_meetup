@@ -11,7 +11,6 @@
 #  updated_at      :datetime         not null
 #
 
-
 FactoryBot.define do
   factory :user_account do
     email { FFaker::Internet.unique.email }
