@@ -1,0 +1,63 @@
+"""
+Auth token provider
+"""
+type AuthTokenType {
+  """
+  Access JWT token
+  """
+  access: String!
+
+  """
+  CSRF protection token
+  """
+  csrf: String!
+
+  """
+  JWT token for refreshing access token
+  """
+  refresh: String!
+}
+
+type Mutation {
+  """
+  Sign up a user
+  """
+  userSignUp(input: UserSignUpInput!): AuthTokenType!
+}
+
+type Query {
+  """
+  An example field added by the generator
+  """
+  testField: String!
+}
+
+"""
+Sign up user via email
+"""
+input UserSignUpInput {
+  """
+  User's account email
+  """
+  email: String!
+
+  """
+  User's first name
+  """
+  firstName: String!
+
+  """
+  User's last name
+  """
+  lastName: String!
+
+  """
+  User's account password
+  """
+  password: String!
+
+  """
+  User's account password confirmation
+  """
+  passwordConfirmation: String!
+}

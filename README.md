@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### ENV variables
 
-Things you may want to cover:
+Create `env.*.local` files for development and test environments based on `env.*.local.example` files.
 
-* Ruby version
+#### Database
 
-* System dependencies
+Run `bundle exec rails db:create db:migrate db:seed` to create the database and fill it with seeds.
 
-* Configuration
 
-* Database creation
+#### Linters
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Setup [overcommit](https://github.com/sds/overcommit) to run linters and udpate GraphQL schema automatically before every commit

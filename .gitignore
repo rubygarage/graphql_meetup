@@ -20,3 +20,14 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Ignore dotenv files - dotenv-rails
+.env.*.local
+.env
+
+# Ignore gems installed with rbenv gemset
+/.gems/*
+
+/config/credentials/development.key
+
+/config/credentials/test.key

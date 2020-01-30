@@ -1,0 +1,12 @@
+en:
+  graphql:
+    inputs:
+      user:
+        sign_up_input:
+          desc: Sign up user via email
+          args:
+            first_name: User's first name
+            last_name: User's last name
+            email: User's account email
+            password: User's account password
+            password_confirmation: User's account password confirmation
