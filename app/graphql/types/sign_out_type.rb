@@ -8,6 +8,6 @@ module Types
     field :completed,
           Boolean,
           null: true,
-          description: I18n.t('graphql.mutations.sign_out.fields.completed')
+          description: I18n.t('graphql.mutations.user.sign_out.fields.completed')
   end
 end

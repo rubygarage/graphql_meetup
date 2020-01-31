@@ -7,7 +7,7 @@ module Mutations
 
       type Types::SignOutType
 
-      description I18n.t('graphql.mutations.sign_out.desc')
+      description I18n.t('graphql.mutations.user.sign_out.desc')
 
       def resolve
         match_operation UserAuth::Operation::SignOut.call refresh_token: refresh_token
