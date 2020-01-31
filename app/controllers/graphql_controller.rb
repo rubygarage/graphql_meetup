@@ -4,7 +4,7 @@ class GraphQLController < ApplicationController
   def execute
     variables, query, operation_name = params.values_at(:variables, :query, :operationName)
 
-    context = { 
+    context = {
       current_user: current_user,
       found_refresh_token: found_refresh_token,
       refresh_token_payload: refresh_token_payload

@@ -12,7 +12,7 @@ class GraphQL::Errors
   end
 end
 
-GraphQL::Errors.configure(GraphQLMeetupSchema) do
+GraphQL::Errors.configure(GraphQLMeetupSchema) do # rubocop:disable Metrics/BlockLength
   GENERAL_ERRORS = [
     GraphQL::RuntimeError,
     GraphQL::AuthenticationError,

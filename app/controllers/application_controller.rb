@@ -5,7 +5,6 @@ class ApplicationController < ActionController::API
   rescue_from JWTSessions::Errors::Unauthorized, with: :not_authorized
   include JWTSessions::RailsAuthorization
 
-
   private
 
   def found_access_token

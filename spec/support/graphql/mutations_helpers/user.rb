@@ -13,6 +13,7 @@ module GraphQL
         }
       )
     end
+
     def signout_mutation
       %(
         mutation userSignOut {

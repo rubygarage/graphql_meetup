@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe 'mutation userSignOut', type: :request do
   let(:user_account) { create(:user_account) }
   let(:payload) do
