@@ -13,3 +13,5 @@ en:
           desc: Sign out a user
           fields:
             completed: will return true if the user log out
+        sign_in:
+          desc: Sign in a user

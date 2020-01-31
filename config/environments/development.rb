@@ -50,4 +50,18 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  config.after_initialize do
+    Bullet.enable = true
+    Bullet.bullet_logger = true
+    Bullet.rails_logger = true
+    Bullet.sentry = true
+
+    JWTSessions.token_store = :redis, {
+      redis_host: ENV.fetch('REDIS_HOST', 'localhost'),
+      redis_port: ENV.fetch('REDIS_PORT', 6379),
+      redis_db_name: '0',
+      token_prefix: 'jwt_'
+    }
+  end
 end

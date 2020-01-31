@@ -20,6 +20,11 @@ type AuthTokenType {
 
 type Mutation {
   """
+  Sign in a user
+  """
+  userSignIn(input: UserSignInInput!): AuthTokenType!
+
+  """
   Sign out a user
   """
   userSignOut: SignOutType
@@ -45,6 +50,21 @@ type SignOutType {
   will return true if the user log out
   """
   completed: Boolean
+}
+
+"""
+Sign in user via email
+"""
+input UserSignInInput {
+  """
+  User's account email
+  """
+  email: String!
+
+  """
+  User's account password
+  """
+  password: String!
 }
 
 """

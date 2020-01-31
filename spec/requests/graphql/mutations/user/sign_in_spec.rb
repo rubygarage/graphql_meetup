@@ -4,8 +4,10 @@ describe 'mutation userSignin', type: :request do
   let(:user_account) { create :user_account }
   let(:default_variables) do
     {
-      email: user_account.email,
-      password: 'password'
+      input: {
+        email: user_account.email,
+        password: 'password'
+      }
     }
   end
 
@@ -16,13 +18,21 @@ describe 'mutation userSignin', type: :request do
         variables: variables
       )
 
-      expect(response).to match_schema(BuyerSigninSchema::Success)
+      expect(response).to match_schema(User::SignInSchema::Success)
       expect(response.status).to be(200)
     end
   end
 
   context 'when wrong credendials' do
-    let(:buyer_account) { create(:buyer_account, status: 1) }
+    let(:user_account) { create(:user_account) }
+    let(:default_variables) do
+      {
+        input: {
+          email: 'gregory@gmail.com',
+          password: 'password'
+        }
+      }
+    end
 
     it 'returns an error info' do
       graphql_post(
@@ -30,7 +40,7 @@ describe 'mutation userSignin', type: :request do
         variables: variables
       )
 
-      expect(response).to match_schema(AuthenticationInactiveAccountErrorSchema)
+      expect(response).to match_schema(UnauthenticatedErrorSchema)
       expect(response.status).to be(200)
     end
   end

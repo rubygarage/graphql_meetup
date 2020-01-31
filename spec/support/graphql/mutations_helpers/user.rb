@@ -14,6 +14,18 @@ module GraphQL
       )
     end
 
+    def user_signin_mutation
+      %(
+        mutation userSignIn($input: UserSignInInput!) {
+          userSignIn(input: $input) {
+            access
+            csrf
+            refresh
+          }
+        }
+      )
+    end
+
     def signout_mutation
       %(
         mutation userSignOut {
