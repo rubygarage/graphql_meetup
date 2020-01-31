@@ -4,8 +4,10 @@ describe 'mutation userSignin', type: :request do
   let(:user_account) { create :user_account }
   let(:default_variables) do
     {
-      email: user_account.email,
-      password: 'password'
+      input: {
+        email: user_account.email,
+        password: 'password'
+      }
     }
   end
 
@@ -25,8 +27,10 @@ describe 'mutation userSignin', type: :request do
     let(:user_account) { create(:user_account) }
     let(:default_variables) do
       {
-        email: 'lol@gmail.com',
-        password: 'password'
+        input: {
+          email: 'gregory@gmail.com',
+          password: 'password'
+        }
       }
     end
 

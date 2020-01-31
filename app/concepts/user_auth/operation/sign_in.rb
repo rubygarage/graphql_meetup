@@ -6,6 +6,7 @@ module UserAuth::Operation
     step Contract::Validate()
     step :find_user_account
     step :check_credentials
+    fail :invalid_credentials
     step :generate_auth_token
 
     def build_contract(_ctx, params:, **)
@@ -14,17 +15,15 @@ module UserAuth::Operation
 
     def find_user_account(ctx, params:, **)
       ctx['user_account'] = UserAccount.find_by(email: params[:email])
-      Trailblazer::Activity::Right
     end
 
     def check_credentials(ctx, user_account:, params:, **)
-      if user_account&.authenticate(params[:password])
-        Trailblazer::Activity::Right
-      else
-        ctx['operation_status'] = :credentials_error
-        ctx['contract.default'].errors.add :base, I18n.t('operations.auth.invalid_credentials')
-        Trailblazer::Activity::Left
-      end
+      user_account.authenticate(params[:password])
+    end
+
+    def invalid_credentials(ctx, **)
+      ctx['operation_status'] = :credentials_error
+      ctx['contract.default'].errors.add :base, I18n.t('operations.auth.invalid_credentials')
     end
 
     def generate_auth_token(ctx, user_account:, **)

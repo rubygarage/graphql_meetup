@@ -16,14 +16,8 @@ module GraphQL
 
     def user_signin_mutation
       %(
-        mutation userSignIn(
-          $email: String!,
-          $password: String!
-        ) {
-          userSignIn(input: {
-            email: $email,
-            password: $password
-          }) {
+        mutation userSignIn($input: UserSignInInput!) {
+          userSignIn(input: $input) {
             access
             csrf
             refresh
