@@ -25,6 +25,11 @@ type Mutation {
   userSignIn(input: UserSignInInput!): AuthTokenType!
 
   """
+  Sign out a user
+  """
+  userSignOut: SignOutType
+
+  """
   Sign up a user
   """
   userSignUp(input: UserSignUpInput!): AuthTokenType!
@@ -35,6 +40,16 @@ type Query {
   An example field added by the generator
   """
   testField: String!
+}
+
+"""
+User sign out
+"""
+type SignOutType {
+  """
+  will return true if the user log out
+  """
+  completed: Boolean
 }
 
 """

@@ -9,5 +9,9 @@ en:
       user:
         sign_up:
           desc: Sign up a user
+        sign_out:
+          desc: Sign out a user
+          fields:
+            completed: will return true if the user log out
         sign_in:
           desc: Sign in a user

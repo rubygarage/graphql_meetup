@@ -12,6 +12,8 @@ en:
           created_at: Created at
           updated_at: Updated at
           placed_at: Placed at
+      sign_out:
+        desc: User sign out
       auth_token:
         desc: Auth token provider
         fields:
