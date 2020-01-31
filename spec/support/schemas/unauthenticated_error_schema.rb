@@ -1,4 +1,6 @@
-AuthenticationAccountErrorSchema = Dry::Validation.Schema do
+# frozen_string_literal: true
+
+UnauthenticatedErrorSchema = Dry::Validation.Schema do
   input :hash?
 
   required(:data)

@@ -20,6 +20,11 @@ type AuthTokenType {
 
 type Mutation {
   """
+  translation missing: en.graphql.mutations.user.sign_in.desc
+  """
+  userSignIn(input: UserSignInInput!): AuthTokenType!
+
+  """
   Sign up a user
   """
   userSignUp(input: UserSignUpInput!): AuthTokenType!
@@ -30,6 +35,21 @@ type Query {
   An example field added by the generator
   """
   testField: String!
+}
+
+"""
+translation missing: en.graphql.inputs.user.sign_in_input.desc
+"""
+input UserSignInInput {
+  """
+  translation missing: en.graphql.inputs.user.sign_in_input.args.email
+  """
+  email: String!
+
+  """
+  translation missing: en.graphql.inputs.user.sign_in_input.args.password
+  """
+  password: String!
 }
 
 """

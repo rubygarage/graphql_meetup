@@ -24,11 +24,11 @@ describe 'mutation userSignin', type: :request do
   context 'when wrong credendials' do
     let(:user_account) { create(:user_account) }
     let(:default_variables) do
-    {
-      email: 'lol@gmail.com',
-      password: 'password'
-    }
-  end
+      {
+        email: 'lol@gmail.com',
+        password: 'password'
+      }
+    end
 
     it 'returns an error info' do
       graphql_post(
@@ -36,7 +36,7 @@ describe 'mutation userSignin', type: :request do
         variables: variables
       )
 
-      expect(response).to match_schema(AuthenticationAccountErrorSchema)
+      expect(response).to match_schema(UnauthenticatedErrorSchema)
       expect(response.status).to be(200)
     end
   end

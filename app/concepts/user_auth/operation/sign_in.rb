@@ -11,7 +11,7 @@ module UserAuth::Operation
     def build_contract(_ctx, params:, **)
       UserAuth::Contract::SignIn.new(UserAccount, **params)
     end
-    
+
     def find_user_account(ctx, params:, **)
       ctx['user_account'] = UserAccount.find_by(email: params[:email])
       Trailblazer::Activity::Right

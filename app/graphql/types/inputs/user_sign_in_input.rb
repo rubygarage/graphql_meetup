@@ -19,7 +19,6 @@ module Types
                String,
                required: true,
                description: I18n.t("#{I18N_PATH}.args.password")
-
     end
   end
 end
