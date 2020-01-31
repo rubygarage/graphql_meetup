@@ -1,0 +1,63 @@
+version: '3.4'
+
+x-app: &app
+  build:
+    context: .
+    dockerfile: ./docker/Dockerfile
+    args:
+      RUBY_VERSION: '2.6.3'
+      BUNDLER_VERSION: '2.0.2'
+      PG_MAJOR: '11'
+      NODE_MAJOR: '12'
+      YARN_VERSION: '1.19.2-1'
+  image: graphql_meetup:1.0.0
+  tmpfs:
+    - /tmp
+
+x-backend: &backend
+  <<: *app
+  stdin_open: true
+  tty: true
+  volumes:
+    - .:/app:cached
+    - rails_cache:/app/tmp/cache
+    - bundle:/app/vendor/bundle
+    - .psqlrc:/root/.psqlrc:ro
+  env_file: ./docker/docker.env
+  environment:
+    - RAILS_ENV=${RAILS_ENV:-development}
+  depends_on:
+    - postgres
+    - redis
+
+services:
+  rails:
+    <<: *backend
+    entrypoint: docker/entrypoint.sh
+    command: bundle exec rails server -b 0.0.0.0
+    ports:
+      - '${RAILS_PORT:-3000}:3000'
+
+  postgres:
+    image: postgres:11.1
+    # volumes:
+      # - ./docker/.psqlrc:/root/.psqlrc:ro
+      # - postgres:/var/lib/postgresql/data
+      # - ./log:/root/log:cached
+    environment:
+      - PSQL_HISTFILE=/root/log/.psql_history
+    ports:
+      - 5432
+
+  redis:
+    image: redis:4.0.13-alpine
+    volumes:
+      - redis:/data
+    ports:
+      - 6379
+
+volumes:
+  postgres:
+  redis:
+  bundle:
+  rails_cache:

@@ -47,4 +47,18 @@ Rails.application.configure do
 
   # Raises error for missing translations.
   # config.action_view.raise_on_missing_translations = true
+
+  config.after_initialize do
+    Bullet.enable = true
+    Bullet.bullet_logger = true
+    Bullet.raise = true
+    Bullet.sentry = true
+
+    JWTSessions.token_store = :redis, {
+      redis_host: ENV.fetch('REDIS_HOST', 'localhost'),
+      redis_port: ENV.fetch('REDIS_PORT', 6379),
+      redis_db_name: '0',
+      token_prefix: 'test_jwt_'
+    }
+  end
 end
