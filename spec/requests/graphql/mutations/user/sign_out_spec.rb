@@ -19,7 +19,7 @@ describe 'mutation userSignOut', type: :request do
         headers: { 'X-Refresh-Token': "Bearer #{login[:refresh]}" }
       )
 
-      expect(response).to match_schema(DestroySessionSchema::Success)
+      expect(response).to match_schema(Session::DestroySchema::Success)
       expect(response.status).to be(200)
     end
   end
@@ -31,7 +31,7 @@ describe 'mutation userSignOut', type: :request do
         headers: { 'Authorization': "Bearer #{login[:access]}" }
       )
 
-      expect(response).to match_schema(DestroySessionSchema::Error)
+      expect(response).to match_schema(Session::DestroySchema::Error)
       expect(response.status).to be(200)
     end
   end
@@ -42,7 +42,7 @@ describe 'mutation userSignOut', type: :request do
         query: signout_mutation
       )
 
-      expect(response).to match_schema(DestroySessionSchema::Error)
+      expect(response).to match_schema(Session::DestroySchema::Error)
       expect(response.status).to be(200)
     end
   end
