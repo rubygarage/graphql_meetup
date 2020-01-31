@@ -1,5 +1,9 @@
 # README
 
+#### Running application with Docker
+
+Run `docker-compose up` (or `docker-compose up --build` if you've done some changes) to run the app on port 3000.
+
 #### ENV variables
 
 Create `env.*.local` files for development and test environments based on `env.*.local.example` files.
