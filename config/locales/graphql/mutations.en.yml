@@ -9,3 +9,5 @@ en:
       user:
         sign_up:
           desc: Sign up a user
+        sign_in:
+          desc: Sign in a user

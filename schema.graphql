@@ -20,7 +20,7 @@ type AuthTokenType {
 
 type Mutation {
   """
-  translation missing: en.graphql.mutations.user.sign_in.desc
+  Sign in a user
   """
   userSignIn(input: UserSignInInput!): AuthTokenType!
 
@@ -38,16 +38,16 @@ type Query {
 }
 
 """
-translation missing: en.graphql.inputs.user.sign_in_input.desc
+Sign in user via email
 """
 input UserSignInInput {
   """
-  translation missing: en.graphql.inputs.user.sign_in_input.args.email
+  User's account email
   """
   email: String!
 
   """
-  translation missing: en.graphql.inputs.user.sign_in_input.args.password
+  User's account password
   """
   password: String!
 }
