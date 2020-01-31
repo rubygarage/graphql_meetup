@@ -2,7 +2,7 @@
 
 OperationMatcher = Dry::Matcher.new(
   file_success: Dry::Matcher::Case.new(
-    match: ->(result) { result.success? && result[:filename] },
+    match: ->(result) { binding.pry; result.success? && result[:filename] },
     resolve: ->(result) { result }
   ),
   success: Dry::Matcher::Case.new(
