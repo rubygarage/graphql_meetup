@@ -10,3 +10,8 @@ en:
             email: User's account email
             password: User's account password
             password_confirmation: User's account password confirmation
+        sign_in_input:
+          desc: Sign in user via email
+          args:
+            email: User's account email
+            password: User's account password

@@ -20,6 +20,11 @@ type AuthTokenType {
 
 type Mutation {
   """
+  Sign in a user
+  """
+  userSignIn(input: UserSignInInput!): AuthTokenType!
+
+  """
   Sign up a user
   """
   userSignUp(input: UserSignUpInput!): AuthTokenType!
@@ -30,6 +35,21 @@ type Query {
   An example field added by the generator
   """
   testField: String!
+}
+
+"""
+Sign in user via email
+"""
+input UserSignInInput {
+  """
+  User's account email
+  """
+  email: String!
+
+  """
+  User's account password
+  """
+  password: String!
 }
 
 """
