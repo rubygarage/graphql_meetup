@@ -9,6 +9,10 @@ AllCops:
     - 'vendor/**/*'
     - 'bin/*'
 
+Lint/UnreachableCode:
+  Exclude:
+    - 'app/concepts/**/*.rb'    
+
 Metrics/BlockLength:
   Exclude:
     - 'spec/concepts/**/*'
@@ -16,6 +20,7 @@ Metrics/BlockLength:
     - 'app/graphql/errors.rb'
     - 'app/graphql/graphql_meetup_schema.rb'
     - 'config/environments/*'
+    - 'spec/support/**/*'
 
 Metrics/LineLength:
   Max: 120
@@ -23,8 +28,8 @@ Metrics/LineLength:
 Metrics/MethodLength:
   Max: 20
   Exclude:
-    - 'spec/support/graphql/mutation_helpers/*'
-    - 'spec/support/graphql/query_helpers/*'
+    - 'spec/support/graphql/mutations_helpers/*'
+    - 'spec/support/graphql/queries_helpers/*'
 
 Style/ClassAndModuleChildren:
   Enabled: false
