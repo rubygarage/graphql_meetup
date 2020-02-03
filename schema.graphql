@@ -20,7 +20,7 @@ type AuthTokenType {
 
 type Mutation {
   """
-  translation missing: en.graphql.mutations.auth.refresh_token.desc
+  Updating current access token with refresh token
   """
   refreshToken: RefreshedAccessPayloadType!
 
@@ -48,21 +48,21 @@ type Query {
 }
 
 """
-translation missing: en.graphql.types.refreshed_access_payload_type.desc
+Payload with refreshed access tokens
 """
 type RefreshedAccessPayloadType {
   """
-  translation missing: en.graphql.types.refreshed_access_payload_type.fields.access
+  JWT access token
   """
   access: String!
 
   """
-  translation missing: en.graphql.types.refreshed_access_payload_type.fields.access_expires_at
+  Expiration of access tokens
   """
   accessExpiresAt: String!
 
   """
-  translation missing: en.graphql.types.refreshed_access_payload_type.fields.csrf
+  Token for signed cookies
   """
   csrf: String!
 }

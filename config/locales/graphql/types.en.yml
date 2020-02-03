@@ -20,3 +20,9 @@ en:
           csrf: CSRF protection token
           access: Access JWT token
           refresh: JWT token for refreshing access token
+      refreshed_access_payload_type:
+        desc: Payload with refreshed access tokens
+        fields:
+          csrf: Token for signed cookies
+          access: JWT access token
+          access_expires_at: Expiration of access tokens
