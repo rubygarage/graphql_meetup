@@ -13,7 +13,15 @@
 
 FactoryBot.define do
   factory :user_account do
+    transient do
+      with_user_profile { false }
+    end
+
     email { FFaker::Internet.unique.email }
     password { 'password' }
+
+    after(:build) do |account, evaluator|
+      account.user_profile = build(:user_profile, user_account: account) if evaluator.with_user_profile
+    end
   end
 end

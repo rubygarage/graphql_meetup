@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module GraphQL
-  module MutationsHelper
+  module MutationHelpers
     def user_signup_mutation
       %(
         mutation userSignUp($input: UserSignUpInput!) {
