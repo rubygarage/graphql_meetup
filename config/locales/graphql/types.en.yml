@@ -20,3 +20,20 @@ en:
           csrf: CSRF protection token
           access: Access JWT token
           refresh: JWT token for refreshing access token
+      image_type:
+        desc: General type for image
+        fields:
+          id: Image blob id
+          filepath: Image url
+      user_account_type:
+        desc: User account
+        fields:
+          email: Email of user account
+          user_profile: User account's profile
+      user_profile_type:
+        desc: User profile
+        fields:
+          first_name: User's first name
+          last_name: User's last name
+          full_name: User's full name
+          avatar: User's avatar image type

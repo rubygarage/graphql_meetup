@@ -1,0 +1,4 @@
+en:
+  graphql:
+    queries:
+      me: Get current user

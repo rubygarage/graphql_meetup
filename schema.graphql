@@ -19,16 +19,16 @@ type AuthTokenType {
 }
 
 """
-translation missing: en.graphql.types.image_type.desc
+General type for image
 """
 type ImageType {
   """
-  translation missing: en.graphql.types.image_type.fields.filepath
+  Image url
   """
   filepath: String
 
   """
-  translation missing: en.graphql.types.image_type.fields.id
+  Image blob id
   """
   id: String!
 }
@@ -51,18 +51,18 @@ type Mutation {
 }
 
 """
-translation missing: en.graphql.interfaces.node.desc
+An object with an ID to support global identification.
 """
 interface Node {
   """
-  translation missing: en.graphql.interfaces.node.fields.id
+  Globally unique identifier.
   """
   id: ID!
 }
 
 type Query {
   """
-  translation missing: en.graphql.queries.me
+  Get current user
   """
   me: UserAccountType!
 }
@@ -78,51 +78,51 @@ type SignOutType {
 }
 
 """
-translation missing: en.graphql.types.user_account_type.desc
+User account
 """
 type UserAccountType implements Node {
   """
-  translation missing: en.graphql.types.user_account_type.fields.email
+  Email of user account
   """
   email: String!
 
   """
-  translation missing: en.graphql.interfaces.node.fields.id
+  Globally unique identifier.
   """
   id: ID!
 
   """
-  translation missing: en.graphql.types.user_account_type.fields.user_profile
+  User account's profile
   """
   userProfile: UserProfileType
 }
 
 """
-translation missing: en.graphql.types.user_profile_type.desc
+User profile
 """
 type UserProfileType implements Node {
   """
-  translation missing: en.graphql.types.user_profile_type.fields.avatar
+  User's avatar image type
   """
   avatar: ImageType!
 
   """
-  translation missing: en.graphql.types.user_profile_type.fields.first_name
+  User's first name
   """
   firstName: String!
 
   """
-  translation missing: en.graphql.types.user_profile_type.fields.full_name
+  User's full name
   """
   fullName: String!
 
   """
-  translation missing: en.graphql.interfaces.node.fields.id
+  Globally unique identifier.
   """
   id: ID!
 
   """
-  translation missing: en.graphql.types.user_profile_type.fields.last_name
+  User's last name
   """
   lastName: String!
 }
