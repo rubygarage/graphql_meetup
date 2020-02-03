@@ -24,6 +24,8 @@ module Types
       Rails.application.routes.url_helpers.rails_blob_url(object.blob)
     end
 
-    delegate :id, to: :object
+    def id
+      object.blob.id
+    end
   end
 end
