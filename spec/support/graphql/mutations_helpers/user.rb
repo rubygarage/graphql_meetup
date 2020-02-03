@@ -35,5 +35,17 @@ module GraphQL
         }
       )
     end
+
+    def refresh_token_mutation
+      %(
+        mutation {
+          refreshToken {
+            csrf
+            access
+            accessExpiresAt
+          }
+        }
+      )
+    end
   end
 end
