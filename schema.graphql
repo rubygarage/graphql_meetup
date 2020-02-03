@@ -20,6 +20,11 @@ type AuthTokenType {
 
 type Mutation {
   """
+  translation missing: en.graphql.mutations.auth.refresh_token.desc
+  """
+  refreshToken: RefreshedAccessPayloadType!
+
+  """
   Sign in a user
   """
   userSignIn(input: UserSignInInput!): AuthTokenType!
@@ -40,6 +45,26 @@ type Query {
   An example field added by the generator
   """
   testField: String!
+}
+
+"""
+translation missing: en.graphql.types.refreshed_access_payload_type.desc
+"""
+type RefreshedAccessPayloadType {
+  """
+  translation missing: en.graphql.types.refreshed_access_payload_type.fields.access
+  """
+  access: String!
+
+  """
+  translation missing: en.graphql.types.refreshed_access_payload_type.fields.access_expires_at
+  """
+  accessExpiresAt: String!
+
+  """
+  translation missing: en.graphql.types.refreshed_access_payload_type.fields.csrf
+  """
+  csrf: String!
 }
 
 """
