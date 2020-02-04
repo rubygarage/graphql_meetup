@@ -1,0 +1,5 @@
+en:
+  graphql:
+    errors:
+      not_authenticated:
+        not_authenticated: Not authenticated

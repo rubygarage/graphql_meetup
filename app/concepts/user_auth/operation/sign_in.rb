@@ -17,7 +17,7 @@ module UserAuth::Operation
       ctx['user_account'] = UserAccount.find_by(email: params[:email])
     end
 
-    def check_credentials(ctx, user_account:, params:, **)
+    def check_credentials(_ctx, user_account:, params:, **)
       user_account.authenticate(params[:password])
     end
 

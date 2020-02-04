@@ -15,3 +15,6 @@ en:
             completed: will return true if the user log out
         sign_in:
           desc: Sign in a user
+      auth:
+        refresh_token:
+          desc: Updating current access token with refresh token
