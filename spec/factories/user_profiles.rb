@@ -12,7 +12,6 @@
 #  user_account_id :bigint           not null
 #
 
-
 FactoryBot.define do
   factory :user_profile do
     first_name { FFaker::Name.first_name }
