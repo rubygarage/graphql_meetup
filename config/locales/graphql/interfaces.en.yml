@@ -1,0 +1,7 @@
+en:
+  graphql:
+    interfaces:
+      node:
+        desc: An object with an ID to support global identification.
+        fields:
+          id: Globally unique identifier.

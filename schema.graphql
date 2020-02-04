@@ -18,6 +18,21 @@ type AuthTokenType {
   refresh: String!
 }
 
+"""
+General type for image
+"""
+type ImageType {
+  """
+  Image url
+  """
+  filepath: String
+
+  """
+  Image blob id
+  """
+  id: String!
+}
+
 type Mutation {
   """
   Updating current access token with refresh token
@@ -40,11 +55,21 @@ type Mutation {
   userSignUp(input: UserSignUpInput!): AuthTokenType!
 }
 
+"""
+An object with an ID to support global identification.
+"""
+interface Node {
+  """
+  Globally unique identifier.
+  """
+  id: ID!
+}
+
 type Query {
   """
-  An example field added by the generator
+  Get current user
   """
-  testField: String!
+  me: UserAccountType!
 }
 
 """
@@ -75,6 +100,56 @@ type SignOutType {
   will return true if the user log out
   """
   completed: Boolean
+}
+
+"""
+User account
+"""
+type UserAccountType implements Node {
+  """
+  Email of user account
+  """
+  email: String!
+
+  """
+  Globally unique identifier.
+  """
+  id: ID!
+
+  """
+  User account's profile
+  """
+  userProfile: UserProfileType
+}
+
+"""
+User profile
+"""
+type UserProfileType implements Node {
+  """
+  User's avatar image type
+  """
+  avatar: ImageType!
+
+  """
+  User's first name
+  """
+  firstName: String!
+
+  """
+  User's full name
+  """
+  fullName: String!
+
+  """
+  Globally unique identifier.
+  """
+  id: ID!
+
+  """
+  User's last name
+  """
+  lastName: String!
 }
 
 """
