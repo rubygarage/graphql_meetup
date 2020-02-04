@@ -10,7 +10,6 @@ module Lib::Builders
       payload = { account_id: account_id }
 
       session.new(
-        namespace: "user-#{account_id}",
         payload: payload,
         refresh_payload: payload
       )

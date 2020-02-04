@@ -35,6 +35,11 @@ type ImageType {
 
 type Mutation {
   """
+  Updating current access token with refresh token
+  """
+  refreshToken: RefreshedAccessPayloadType!
+
+  """
   Sign in a user
   """
   userSignIn(input: UserSignInInput!): AuthTokenType!
@@ -65,6 +70,26 @@ type Query {
   Get current user
   """
   me: UserAccountType!
+}
+
+"""
+Payload with refreshed access tokens
+"""
+type RefreshedAccessPayloadType {
+  """
+  JWT access token
+  """
+  access: String!
+
+  """
+  Expiration of access tokens
+  """
+  accessExpiresAt: String!
+
+  """
+  Token for signed cookies
+  """
+  csrf: String!
 }
 
 """
