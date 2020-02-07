@@ -36,6 +36,16 @@ ActiveRecord::Schema.define(version: 2020_02_03_090139) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "movies", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "original_title"
+    t.string "overview"
+    t.integer "revenue"
+    t.integer "budget"
+    t.string "runtime"
+    t.string "original_language"
+  end
+
   create_table "user_accounts", force: :cascade do |t|
     t.string "email", null: false
     t.string "password_digest", null: false
