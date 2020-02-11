@@ -11,8 +11,6 @@ class MatchOperationResult
     OperationMatcher.call(operation_result) do |m|
       m.success { |result| result }
 
-      m.file_success { |result| result }
-
       m.validation_error do |result|
         raise GraphQL::UserInputError.new(
           I18n.t('graphql.errors.messages.user_input'),

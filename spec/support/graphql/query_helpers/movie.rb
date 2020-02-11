@@ -46,5 +46,28 @@ module GraphQL
         }
       )
     end
+
+    def movie_query
+      %(
+        query movie($id: ID!) {
+          movie(id: $id) {
+            id
+            title
+            originalTitle
+            overview
+            revenue
+            budget
+            runtime
+            originalLanguage
+            poster {
+              filePath
+            }
+            images {
+              filePath
+            }
+          }
+        }
+      )
+    end
   end
 end

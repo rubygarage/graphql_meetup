@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../shared/image_schema.rb'
+require_relative '../shared/movie_schema.rb'
 
 module Movies
   IndexSchema = Dry::Validation.Schema do
@@ -17,20 +17,7 @@ module Movies
         end
         required(:edges).each do
           required(:cursor).filled(:str?)
-          required(:node).schema do
-            required(:id).filled(:str?)
-            required(:title).filled(:str?)
-            optional(:originalTitle).maybe(:str?)
-            optional(:overview).maybe(:str?)
-            required(:revenue).maybe(:int?)
-            required(:budget).maybe(:int?)
-            required(:runtime).maybe(:int?)
-            required(:originalLanguage).maybe(:str?)
-            required(:poster).schema(::Schemas::Shared::ImageSchema)
-            required(:images).each do
-              schema(::Schemas::Shared::ImageSchema)
-            end
-          end
+          required(:node).schema(::Schemas::Shared::MovieSchema)
         end
       end
     end

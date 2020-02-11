@@ -267,6 +267,11 @@ type PosterType implements ImageInterface {
 
 type Query {
   """
+  translation missing: en.graphql.queries.movie
+  """
+  movie(id: ID!): MovieType
+
+  """
   Query to search movies by title
   """
   moviesSearch(

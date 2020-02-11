@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module User
+module UserAuth
   module SignUpSchema
     Success = Dry::Validation.Schema do
       input :hash?
