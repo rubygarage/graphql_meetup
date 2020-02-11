@@ -6,7 +6,7 @@ class CreateMovies < ActiveRecord::Migration[6.0]
       t.string :overview
       t.integer :revenue
       t.integer :budget
-      t.string :runtime
+      t.integer :runtime
       t.string :original_language
     end
   end

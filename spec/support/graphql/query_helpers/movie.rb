@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
 module GraphQL
-  module MutationsHelper
-    def movies_query
+  module QueryHelpers
+    def movies_search_query
       %(
-        query movies(
+        query moviesSearch(
           $after: String
           $before: String
           $first: Int
           $last: Int
         ) {
-          movies(
+          moviesSearch(
             after: $after
             before: $before
             first: $first
@@ -35,11 +35,9 @@ module GraphQL
                 runtime
                 originalLanguage
                 poster {
-                  id
                   filePath
                 }
                 images {
-                  id
                   filePath
                 }
               }

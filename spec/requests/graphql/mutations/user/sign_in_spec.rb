@@ -18,7 +18,7 @@ describe 'mutation userSignin', type: :request do
         variables: variables
       )
 
-      expect(response).to match_schema(User::SignInSchema::Success)
+      expect(response).to match_schema(UserAuth::SignInSchema::Success)
       expect(response.status).to be(200)
     end
   end

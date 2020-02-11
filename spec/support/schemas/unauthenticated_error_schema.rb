@@ -6,7 +6,7 @@ UnauthenticatedErrorSchema = Dry::Validation.Schema do
   required(:data)
   required(:errors).each do
     schema do
-      required(:message).value(eql?: I18n.t('operations.auth.invalid_credentials'))
+      required(:message).value(:str?)
       optional(:locations).value(type?: Array).each(:hash?)
       optional(:extensions).value(type?: Array).each(:hash?)
       required(:extensions).schema do

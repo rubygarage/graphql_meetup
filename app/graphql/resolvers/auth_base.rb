@@ -2,7 +2,7 @@
 
 module Resolvers
   class AuthBase < Base
-    def authorized?(**_kwargs)
+    def authorized?(**_args)
       raise JWTSessions::Errors::Unauthorized unless current_user
 
       true

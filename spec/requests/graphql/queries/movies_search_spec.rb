@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
-describe 'query movies', type: :request do
-  let(:movies) { create_list(:movie, 2) }
+describe 'query moviesSearch', type: :request do
+  let(:movies) { create_list(:movie, 2, with_movie_images: true, with_poster: true) }
+
+  before { movies }
 
   context 'when signed in user' do
     let(:user_account) { create :user_account }
@@ -12,24 +14,24 @@ describe 'query movies', type: :request do
 
     it 'responds with correct schema' do
       graphql_post(
-        query: movies_query,
+        query: movies_search_query,
         variables: {},
         headers: { 'Authorization': "Bearer #{auth_token}" }
       )
 
-      expect(response).to match_schema(Movie::IndexSchema)
+      expect(response).to match_schema(Movies::IndexSchema)
       expect(response.status).to be(200)
     end
   end
 
   context 'when guest user' do
-    it 'responds with correct schema' do
+    it 'responds with error data' do
       graphql_post(
-        query: movies_query,
+        query: movies_search_query,
         variables: {}
       )
 
-      expect(response).to match_schema(Movie::IndexSchema)
+      expect(response).to match_schema(UnauthenticatedErrorSchema)
       expect(response.status).to be(200)
     end
   end

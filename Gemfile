@@ -11,6 +11,7 @@ gem 'puma', '~> 4.1'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 
 # API
+gem 'batch-loader'
 gem 'graphql', '1.9.14'
 gem 'graphql-errors'
 gem 'rack-cors'

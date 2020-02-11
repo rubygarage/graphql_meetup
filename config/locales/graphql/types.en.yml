@@ -20,11 +20,6 @@ en:
           csrf: CSRF protection token
           access: Access JWT token
           refresh: JWT token for refreshing access token
-      image_type:
-        desc: General type for image
-        fields:
-          id: Image blob id
-          filepath: Image url
       user_account_type:
         desc: User account
         fields:
@@ -43,3 +38,19 @@ en:
           csrf: Token for signed cookies
           access: JWT access token
           access_expires_at: Expiration of access tokens
+      movie_image_type:
+        desc: Movie image type
+      poster_type:
+        desc: Movie poster type
+      movie_type:
+        desc: Movie type
+        fields:
+          title: Movie's title
+          budget: Movie's budget
+          images: Movie's images
+          original_language: Original movie original_language
+          original_title: Original movie original_title
+          overview: Movie's overview
+          poster: Movie's poster image
+          revenue: Movie's revenue
+          runtime: Movie's runtime in seconds
