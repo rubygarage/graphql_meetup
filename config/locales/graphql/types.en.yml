@@ -54,3 +54,8 @@ en:
           poster: Movie's poster image
           revenue: Movie's revenue
           runtime: Movie's runtime in seconds
+      image_type:
+        desc: Image type
+        fields:
+          id: Image id
+          filepath: Image file path

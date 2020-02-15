@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(version: 2020_02_09_175736) do
     t.integer "budget"
     t.integer "runtime"
     t.string "original_language"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "user_accounts", force: :cascade do |t|

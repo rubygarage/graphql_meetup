@@ -19,20 +19,6 @@ type AuthTokenType {
 }
 
 """
-<<<<<<< HEAD
-General type for image
-"""
-type ImageType {
-  """
-  Image url
-  """
-  filepath: String
-
-  """
-  Image blob id
-  """
-  id: String!
-=======
 Interface for images
 """
 interface ImageInterface {
@@ -40,6 +26,21 @@ interface ImageInterface {
   Image file path
   """
   filePath: String
+}
+
+"""
+Image type
+"""
+type ImageType {
+  """
+  Image file path
+  """
+  filepath: String
+
+  """
+  Image id
+  """
+  id: String!
 }
 
 """
@@ -160,7 +161,6 @@ type MovieType implements NodeInterface {
   Movie's title
   """
   title: String!
->>>>>>> Implement moviesSearch query
 }
 
 type Mutation {
@@ -186,50 +186,25 @@ type Mutation {
 }
 
 """
-<<<<<<< HEAD
-An object with an ID to support global identification.
+An object with an ID to support global identification
 """
 interface Node {
   """
-  Globally unique identifier.
-=======
+  Globally unique identifier
+  """
+  id: ID!
+}
+
+"""
 An object with an ID to support global identification
 """
 interface NodeInterface {
   """
   Globally unique identifier
->>>>>>> Implement moviesSearch query
   """
   id: ID!
 }
 
-<<<<<<< HEAD
-type Query {
-  """
-  Get current user
-  """
-  me: UserAccountType!
-}
-
-"""
-Payload with refreshed access tokens
-"""
-type RefreshedAccessPayloadType {
-  """
-  JWT access token
-  """
-  access: String!
-
-  """
-  Expiration of access tokens
-  """
-  accessExpiresAt: String!
-
-  """
-  Token for signed cookies
-  """
-  csrf: String!
-=======
 """
 Information about pagination in a connection.
 """
@@ -267,7 +242,12 @@ type PosterType implements ImageInterface {
 
 type Query {
   """
-  translation missing: en.graphql.queries.movie
+  Get current user
+  """
+  me: UserAccountType!
+
+  """
+  Query to get the movie by id
   """
   movie(id: ID!): MovieType
 
@@ -295,7 +275,26 @@ type Query {
     """
     last: Int
   ): MovieConnectionType!
->>>>>>> Implement moviesSearch query
+}
+
+"""
+Payload with refreshed access tokens
+"""
+type RefreshedAccessPayloadType {
+  """
+  JWT access token
+  """
+  access: String!
+
+  """
+  Expiration of access tokens
+  """
+  accessExpiresAt: String!
+
+  """
+  Token for signed cookies
+  """
+  csrf: String!
 }
 
 """
@@ -318,7 +317,7 @@ type UserAccountType implements Node {
   email: String!
 
   """
-  Globally unique identifier.
+  Globally unique identifier
   """
   id: ID!
 
@@ -348,7 +347,7 @@ type UserProfileType implements Node {
   fullName: String!
 
   """
-  Globally unique identifier.
+  Globally unique identifier
   """
   id: ID!
 

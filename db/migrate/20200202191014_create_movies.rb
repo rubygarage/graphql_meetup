@@ -8,6 +8,7 @@ class CreateMovies < ActiveRecord::Migration[6.0]
       t.integer :budget
       t.integer :runtime
       t.string :original_language
+      t.timestamps
     end
   end
 end
