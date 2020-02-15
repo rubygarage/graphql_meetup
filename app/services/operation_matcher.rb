@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
 OperationMatcher = Dry::Matcher.new(
-  file_success: Dry::Matcher::Case.new(
-    match: ->(result) { result.success? && result[:filename] },
-    resolve: ->(result) { result }
-  ),
   success: Dry::Matcher::Case.new(
     match: ->(result) { result.success? },
     resolve: ->(result) { result['result'] }

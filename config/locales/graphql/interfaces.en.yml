@@ -1,7 +1,11 @@
 en:
   graphql:
     interfaces:
-      node:
-        desc: An object with an ID to support global identification.
+      image_interface:
+        desc: Interface for images
         fields:
-          id: Globally unique identifier.
+          file_path: Image file path
+      node:
+        desc: An object with an ID to support global identification
+        fields:
+          id: Globally unique identifier

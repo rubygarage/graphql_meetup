@@ -6,8 +6,7 @@ module Schemas
       input :hash?
 
       schema do
-        required(:id).filled(:str?)
-        required(:filepath).maybe(:str?)
+        required(:filePath).maybe(:str?)
       end
     end
   end
