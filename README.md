@@ -4,6 +4,11 @@
 
 Run `docker-compose up` (or `docker-compose up --build` if you've done some changes) to run the app on port 3000.
 
+For database seeding run:
+```bash
+docker-compose exec rails rake db:seed
+```
+
 #### ENV variables
 
 Create `env.*.local` files for development and test environments based on `env.*.local.example` files.
@@ -11,7 +16,9 @@ Create `env.*.local` files for development and test environments based on `env.*
 #### Database
 
 Run `bundle exec rails db:create db:migrate db:seed` to create the database and fill it with seeds.
-
+Seed user account data:
+email: `user@example.com`
+password: `password`
 
 #### Linters
 

@@ -1,0 +1,14 @@
+.bundle
+.git*
+.gems
+db/*.sqlite3
+db/*.sqlite3-journal
+log/*
+tmp/
+!tmp/pids/.keep
+vendor/bundle
+Dockerfile
+README.md
+venv/*
+node_modules/
+tags

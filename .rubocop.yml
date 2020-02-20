@@ -28,8 +28,8 @@ Metrics/LineLength:
 Metrics/MethodLength:
   Max: 20
   Exclude:
-    - 'spec/support/graphql/mutations_helpers/*'
-    - 'spec/support/graphql/queries_helpers/*'
+    - 'spec/support/graphql/mutation_helpers/*'
+    - 'spec/support/graphql/query_helpers/*'
 
 Style/ClassAndModuleChildren:
   Enabled: false
