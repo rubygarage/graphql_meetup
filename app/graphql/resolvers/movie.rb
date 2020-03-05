@@ -2,7 +2,7 @@
 
 module Resolvers
   class Movie < AuthBase
-    type Types::MovieType, null: true
+    type Types::MovieType, null: false
 
     argument :id, ID, required: true
 
