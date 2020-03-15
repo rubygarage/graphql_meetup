@@ -31,7 +31,6 @@ en:
           first_name: User's first name
           last_name: User's last name
           full_name: User's full name
-          avatar: User's avatar image type
       refreshed_access_payload_type:
         desc: Payload with refreshed access tokens
         fields:

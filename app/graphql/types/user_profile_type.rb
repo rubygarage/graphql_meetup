@@ -23,10 +23,5 @@ module Types
           String,
           null: false,
           description: I18n.t("#{I18N_PATH}.fields.full_name")
-
-    field :avatar,
-          Types::ImageType,
-          null: false,
-          description: I18n.t("#{I18N_PATH}.fields.avatar")
   end
 end

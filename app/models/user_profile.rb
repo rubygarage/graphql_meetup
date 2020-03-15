@@ -15,8 +15,6 @@
 class UserProfile < ApplicationRecord
   belongs_to :user_account
 
-  has_one_attached :avatar
-
   def full_name
     return nil if [first_name, last_name].all?(&:nil?)
 

@@ -16,7 +16,6 @@ module User
             required(:firstName).filled(:str?)
             required(:lastName).filled(:str?)
             required(:fullName).filled(:str?)
-            required(:avatar).schema(::Schemas::Shared::ImageSchema)
           end
         end
       end

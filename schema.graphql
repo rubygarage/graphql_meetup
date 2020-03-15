@@ -29,21 +29,6 @@ interface ImageInterface {
 }
 
 """
-Image type
-"""
-type ImageType {
-  """
-  Image file path
-  """
-  filepath: String
-
-  """
-  Image id
-  """
-  id: String!
-}
-
-"""
 The connection type for MovieType.
 """
 type MovieConnectionType {
@@ -249,7 +234,7 @@ type Query {
   """
   Query to get the movie by id
   """
-  movie(id: ID!): MovieType
+  movie(id: ID!): MovieType!
 
   """
   Query to search movies by title
@@ -331,11 +316,6 @@ type UserAccountType implements Node {
 User profile
 """
 type UserProfileType implements Node {
-  """
-  User's avatar image type
-  """
-  avatar: ImageType!
-
   """
   User's first name
   """

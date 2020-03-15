@@ -13,10 +13,6 @@ module GraphQL
               firstName
               lastName
               fullName
-              avatar {
-                id
-                filepath
-              }
             }
           }
         }
