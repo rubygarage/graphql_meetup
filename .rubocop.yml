@@ -45,10 +45,6 @@ Style/SignalException:
   Exclude:
     - 'app/concepts/**/*'
 
-Lint/UnreachableCode:
-  Exclude:
-    - 'app/concepts/**/*'
-
 # RSpec cops
 RSpec/ExampleLength:
   Exclude:
