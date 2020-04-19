@@ -40,10 +40,10 @@ services:
 
   postgres:
     image: postgres:11.1
-    # volumes:
-      # - ./docker/.psqlrc:/root/.psqlrc:ro
-      # - postgres:/var/lib/postgresql/data
-      # - ./log:/root/log:cached
+    volumes:
+      - ./docker/.psqlrc:/root/.psqlrc:ro
+      - postgres:/var/lib/postgresql/data
+      - ./log:/root/log:cached
     environment:
       - PSQL_HISTFILE=/root/log/.psql_history
     ports:

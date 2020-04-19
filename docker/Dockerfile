@@ -51,7 +51,3 @@ COPY Gemfile* ./
 RUN bundle install --jobs $BUNDLE_JOBS --retry $BUNDLE_RETRY --path $BUNDLE_PATH
 
 COPY . .
-
-# RUN chmod +x entrypoint.sh
-
-# ENTRYPOINT ["entrypoint.sh"]
