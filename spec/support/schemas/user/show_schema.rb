@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative '../shared/image_schema.rb'
-
 module User
   module ShowSchema
     Success = Dry::Validation.Schema do

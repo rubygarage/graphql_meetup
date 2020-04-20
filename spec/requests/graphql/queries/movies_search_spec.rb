@@ -22,6 +22,25 @@ describe 'query moviesSearch', type: :request do
       expect(response).to match_schema(Movies::IndexSchema)
       expect(response.status).to be(200)
     end
+
+    context 'when have filter' do
+      let!(:search_movie) { create(:movie, title: 'Iron Man', with_movie_images: true, with_poster: true) }
+      let(:filter) { 'Iron' }
+
+      it 'responds with correct schema' do
+        graphql_post(
+          query: movies_search_query,
+          variables: { filter: filter },
+          headers: { 'Authorization': "Bearer #{auth_token}" }
+        )
+
+        expect((JSON.parse response.body).dig('data', 'moviesSearch', 'totalCount')).to eq 1
+        expect((JSON.parse response.body).dig('data', 'moviesSearch', 'edges').first.dig('node', 'title'))
+          .to eq(search_movie.title)
+        expect(response).to match_schema(Movies::IndexSchema)
+        expect(response.status).to be(200)
+      end
+    end
   end
 
   context 'when guest user' do

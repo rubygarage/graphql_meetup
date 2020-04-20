@@ -9,12 +9,14 @@ module GraphQL
           $before: String
           $first: Int
           $last: Int
+          $filter: String
         ) {
           moviesSearch(
             after: $after
             before: $before
             first: $first
             last: $last
+            filter: $filter
           ) {
             totalCount
             pageInfo {
@@ -51,6 +53,29 @@ module GraphQL
       %(
         query movie($id: ID!) {
           movie(id: $id) {
+            id
+            title
+            originalTitle
+            overview
+            revenue
+            budget
+            runtime
+            originalLanguage
+            poster {
+              filePath
+            }
+            images {
+              filePath
+            }
+          }
+        }
+      )
+    end
+
+    def trending_movies_query
+      %(
+        query trendingMovies {
+          trendingMovies {
             id
             title
             originalTitle
