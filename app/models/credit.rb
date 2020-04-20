@@ -2,16 +2,17 @@
 
 # == Schema Information
 #
-# Table name: movie_images
+# Table name: credits
 #
 #  id         :bigint           not null, primary key
+#  movie_id   :bigint           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  movie_id   :bigint           not null
 #
 
-class MovieImage < ApplicationRecord
+class Credit < ApplicationRecord
   belongs_to :movie
 
-  has_one_attached :file
+  has_many :casts, dependent: :destroy
+  has_many :crews, dependent: :destroy
 end

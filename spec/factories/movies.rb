@@ -10,8 +10,10 @@
 #  overview          :string
 #  revenue           :integer
 #  budget            :integer
-#  runtime           :string
+#  runtime           :integer
 #  original_language :string
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
 #
 
 FactoryBot.define do
@@ -19,6 +21,7 @@ FactoryBot.define do
     transient do
       with_movie_images { false }
       with_poster { false }
+      with_credit { true }
 
       movie_images_count { 2 }
     end
@@ -31,17 +34,19 @@ FactoryBot.define do
     runtime { (1 + rand).hour.to_i }
     original_language { FFaker::Locale.language }
 
-    after(:build) do |movie, evaluator|
+    after(:create) do |movie, evaluator|
       if evaluator.with_movie_images
-        movie.movie_images = build_list(:movie_image, evaluator.movie_images_count, movie: movie)
+        movie.movie_images = create_list(:movie_image, evaluator.movie_images_count, movie: movie)
       end
 
       if evaluator.with_poster
-        movie.poster = Rack::Test::UploadedFile.new(
-          Rails.root.join('spec', 'fixtures', "#{rand(1..4)}.jpg"),
-          'image/png'
+        movie.poster.attach(
+          io: File.open(Rails.root.join('spec', 'fixtures', "#{rand(1..4)}.jpg")),
+          filename: 'poster.jpg'
         )
       end
+
+      movie.credit = create(:credit, movie: movie) if evaluator.with_credit
     end
   end
 end

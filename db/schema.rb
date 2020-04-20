@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_09_175736) do
+ActiveRecord::Schema.define(version: 2020_03_26_072311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,63 @@ ActiveRecord::Schema.define(version: 2020_02_09_175736) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "casts", force: :cascade do |t|
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "character", null: false
+    t.bigint "credit_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["credit_id"], name: "index_casts_on_credit_id"
+  end
+
+  create_table "credits", force: :cascade do |t|
+    t.bigint "movie_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["movie_id"], name: "index_credits_on_movie_id"
+  end
+
+  create_table "crews", force: :cascade do |t|
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "department", null: false
+    t.bigint "credit_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["credit_id"], name: "index_crews_on_credit_id"
+  end
+
+  create_table "favorite_movies", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_account_id", null: false
+    t.bigint "movie_id", null: false
+    t.index ["movie_id"], name: "index_favorite_movies_on_movie_id"
+    t.index ["user_account_id", "movie_id"], name: "index_favorite_movies_on_user_account_id_and_movie_id", unique: true
+    t.index ["user_account_id"], name: "index_favorite_movies_on_user_account_id"
+  end
+
+  create_table "lists", force: :cascade do |t|
+    t.string "description"
+    t.string "name", null: false
+    t.bigint "user_account_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name", "user_account_id"], name: "index_lists_on_name_and_user_account_id", unique: true
+    t.index ["user_account_id"], name: "index_lists_on_user_account_id"
+  end
+
+  create_table "lists_movies", force: :cascade do |t|
+    t.bigint "list_id"
+    t.bigint "movie_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["list_id", "movie_id"], name: "index_lists_movies_on_list_id_and_movie_id", unique: true
+    t.index ["list_id"], name: "index_lists_movies_on_list_id"
+    t.index ["movie_id"], name: "index_lists_movies_on_movie_id"
   end
 
   create_table "movie_images", force: :cascade do |t|
@@ -72,7 +129,27 @@ ActiveRecord::Schema.define(version: 2020_02_09_175736) do
     t.index ["user_account_id"], name: "index_user_profiles_on_user_account_id"
   end
 
+  create_table "watchlist_movies", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_account_id", null: false
+    t.bigint "movie_id", null: false
+    t.index ["movie_id"], name: "index_watchlist_movies_on_movie_id"
+    t.index ["user_account_id", "movie_id"], name: "index_watchlist_movies_on_user_account_id_and_movie_id", unique: true
+    t.index ["user_account_id"], name: "index_watchlist_movies_on_user_account_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "casts", "credits"
+  add_foreign_key "credits", "movies"
+  add_foreign_key "crews", "credits"
+  add_foreign_key "favorite_movies", "movies"
+  add_foreign_key "favorite_movies", "user_accounts"
+  add_foreign_key "lists", "user_accounts"
+  add_foreign_key "lists_movies", "lists"
+  add_foreign_key "lists_movies", "movies"
   add_foreign_key "movie_images", "movies"
   add_foreign_key "user_profiles", "user_accounts"
+  add_foreign_key "watchlist_movies", "movies"
+  add_foreign_key "watchlist_movies", "user_accounts"
 end

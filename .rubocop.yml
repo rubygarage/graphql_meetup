@@ -21,6 +21,7 @@ Metrics/BlockLength:
     - 'app/graphql/graphql_meetup_schema.rb'
     - 'config/environments/*'
     - 'spec/support/**/*'
+    - 'spec/factories/*'
 
 Metrics/LineLength:
   Max: 120
@@ -30,6 +31,10 @@ Metrics/MethodLength:
   Exclude:
     - 'spec/support/graphql/mutation_helpers/*'
     - 'spec/support/graphql/query_helpers/*'
+
+Metrics/ModuleLength:
+  Exclude:
+    - 'spec/support/graphql/mutation_helpers/user.rb'
 
 Style/ClassAndModuleChildren:
   Enabled: false

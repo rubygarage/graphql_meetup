@@ -2,16 +2,16 @@
 
 # == Schema Information
 #
-# Table name: movie_images
+# Table name: lists_movies
 #
 #  id         :bigint           not null, primary key
+#  list_id    :bigint
+#  movie_id   :bigint
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  movie_id   :bigint           not null
 #
 
-class MovieImage < ApplicationRecord
+class ListsMovie < ApplicationRecord
   belongs_to :movie
-
-  has_one_attached :file
+  belongs_to :list
 end
