@@ -1,11 +1,14 @@
 # README
 
-#### Running application with Docker
+This application is a practical part for the [GraphQL webinar](https://rubygarage.github.io/slides/graphql#/). It contains request specs for all queries and mutations. A part of requests has been implemented during the webinar. You should implement the rest of them.
 
-Run `docker-compose up` (or `docker-compose up --build` if you've done some changes) to run the app on port 3000.
-To enter rails console the container run `docker container exec -it graphql_meetup_rails_1 rails c`.
-To stop the containers run `docker-compose down`.
-TO stop the containers and remove volumes run `docker-compose down --volumes`.
+#### Running tests
+`bundle exec rspec`
+
+#### Using IDE
+You can import requests into [Insomina IDE](https://insomnia.rest/graphql/) by going into the preferences:
+Application -> Preferences -> Data -> Import data.
+Insomnia data file (`Insomnia_GraphQL_Meetup.json`) is located in the root directory of this app.
 
 #### ENV variables
 
@@ -29,3 +32,10 @@ Run `EDITOR=nano bundle exec rails credentials:edit --environment test` and `EDI
 to edit credentials.
 Note: This app was created for educational purposes. It contains `development.key` and `test.key`.
 Always add your keys to .gitignore in real-life applications.  
+
+#### Running application with Docker
+
+Run `docker-compose up` (or `docker-compose up --build` if you've done some changes) to run the app on port 3000.
+To enter rails console the container run `docker container exec -it graphql_meetup_rails_1 rails c`.
+To stop the containers run `docker-compose down`.
+To stop the containers and remove volumes run `docker-compose down --volumes`.
