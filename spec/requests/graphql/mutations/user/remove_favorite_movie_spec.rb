@@ -8,7 +8,7 @@ describe 'mutation userRemoveFavoriteMovie', type: :request do
 
   let(:movie) { create :movie }
   let(:favorite_movie) { create(:favorite_movie, user_account: user_account, movie: movie) }
-  let(:variables) { { input: { user_account_id: user_account.id, movie_id: movie.id } } }
+  let(:variables) { { input: { movie_id: movie.id } } }
 
   before { favorite_movie }
 

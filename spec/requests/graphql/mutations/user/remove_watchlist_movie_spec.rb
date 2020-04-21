@@ -8,7 +8,7 @@ describe 'mutation userRemoveWatchlistMovie', type: :request do
 
   let(:movie) { create :movie }
   let(:watchlist_movie) { create(:watchlist_movie, user_account: user_account, movie: movie) }
-  let(:variables) { { input: { user_account_id: user_account.id, movie_id: movie.id } } }
+  let(:variables) { { input: { movie_id: movie.id } } }
 
   before { watchlist_movie }
 

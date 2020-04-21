@@ -7,7 +7,7 @@ describe 'mutation userAddFavoriteMovie', type: :request do
   let(:token) { JWTSessions::Session.new(payload: payload).login[:access] }
 
   let(:movie) { create :movie }
-  let(:variables) { { input: { user_account_id: user_account.id, movie_id: movie.id } } }
+  let(:variables) { { input: { movie_id: movie.id } } }
 
   context 'when user is authenticated' do
     it 'returns movie data' do

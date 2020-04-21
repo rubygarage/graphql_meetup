@@ -6,8 +6,8 @@ module User
       input :hash?
 
       required(:data).schema do
-        required(:userListRemoveItem).schema do
-          required(:deletedListItemId).filled(:str?)
+        required(:userRemoveListItem).schema do
+          required(:removedMovieId).filled(:str?)
         end
       end
     end

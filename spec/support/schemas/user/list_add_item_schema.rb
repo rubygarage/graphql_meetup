@@ -6,7 +6,7 @@ module User
       input :hash?
 
       required(:data).schema do
-        required(:userListAddItem).schema do
+        required(:userAddListItem).schema do
           required(:id).filled(:str?)
           required(:items).each do
             required(:id).filled(:str?)
