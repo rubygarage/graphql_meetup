@@ -20,15 +20,22 @@ module Types
           null: true,
           description: I18n.t("#{I18N_PATH}.fields.user_profile")
 
-    # Home task
-    # field :lists
-    # field :watch_list_movies
-    # field :favorite_movies
-
     field :lists,
           Types::Connections::ListConnection,
           null: true,
           description: I18n.t("#{I18N_PATH}.fields.lists"),
+          connection: true
+
+    field :favorite_movies_list,
+          Types::Connections::MovieConnection,
+          null: true,
+          description: I18n.t("#{I18N_PATH}.fields.favorite_movies_list"),
+          connection: true
+
+    field :watchlist_movies_list,
+          Types::Connections::MovieConnection,
+          null: true,
+          description: I18n.t("#{I18N_PATH}.fields.watchlist_movies_list"),
           connection: true
   end
 end
