@@ -5,6 +5,7 @@ module Types
     I18N_PATH = 'graphql.types.user_account_type'
 
     graphql_name 'UserAccountType'
+
     implements Types::Interfaces::Node
 
     description I18n.t("#{I18N_PATH}.desc")
@@ -23,5 +24,11 @@ module Types
     # field :lists
     # field :watch_list_movies
     # field :favorite_movies
+
+    field :lists,
+          Types::Connections::ListConnection,
+          null: true,
+          description: I18n.t("#{I18N_PATH}.fields.lists"),
+          connection: true
   end
 end
