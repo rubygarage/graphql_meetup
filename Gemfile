@@ -7,7 +7,7 @@ ruby '2.6.3'
 
 gem 'bcrypt', '~> 3.1.13'
 gem 'bootsnap', '>= 1.4.2', require: false
-gem 'puma', '~> 5.0'
+gem 'puma', '~> 5.3'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
 
 # API
