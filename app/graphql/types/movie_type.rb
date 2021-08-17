@@ -8,13 +8,15 @@ module Types
     implements Types::Interfaces::NodeInterface
     description I18n.t("#{I18N_PATH}.desc")
 
-    field :title, String, null: false, description: I18n.t("#{I18N_PATH}.fields.title")
+    field :budget, Integer, null: true, description: I18n.t("#{I18N_PATH}.fields.budget")
+    field :is_favorite, Boolean, null: true, description: I18n.t("#{I18N_PATH}.fields.is_favorite")
+    field :is_watchlist, Boolean, null: true, description: I18n.t("#{I18N_PATH}.fields.is_watchlist")
+    field :original_language, String, null: true, description: I18n.t("#{I18N_PATH}.fields.original_language")
     field :original_title, String, null: true, description: I18n.t("#{I18N_PATH}.fields.original_title")
     field :overview, String, null: true, description: I18n.t("#{I18N_PATH}.fields.overview")
     field :revenue, Integer, null: true, description: I18n.t("#{I18N_PATH}.fields.revenue")
-    field :budget, Integer, null: true, description: I18n.t("#{I18N_PATH}.fields.budget")
     field :runtime, Integer, null: true, description: I18n.t("#{I18N_PATH}.fields.runtime")
-    field :original_language, String, null: true, description: I18n.t("#{I18N_PATH}.fields.original_language")
+    field :title, String, null: false, description: I18n.t("#{I18N_PATH}.fields.title")
 
     field :images,
           [Types::MovieImageType],
@@ -25,6 +27,14 @@ module Types
           Types::PosterType,
           null: true,
           description: I18n.t("#{I18N_PATH}.fields.poster")
+
+    def is_favorite
+      ::FavoriteMovie.where(user_account_id: context[:current_user], movie_id: object.id).exists?
+    end
+
+    def is_watchlist
+      ::WatchlistMovie.where(user_account_id: context[:current_user], movie_id: object.id).exists?
+    end
 
     def images
       BatchLoader::GraphQL.for(object.id).batch(default_value: []) do |movie_ids, loader|
