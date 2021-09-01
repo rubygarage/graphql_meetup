@@ -6,6 +6,7 @@ module Types
     field :user_sign_out, mutation: Mutations::User::SignOut
     field :user_sign_in, mutation: Mutations::User::SignIn
     field :user_add_favorite_movie, mutation: Mutations::User::AddFavoriteMovie
+    field :user_remove_favorite_movie, mutation: Mutations::User::RemoveFavoriteMovie
 
     field :refresh_token, mutation: Mutations::Auth::RefreshToken
   end
