@@ -91,3 +91,4 @@ en:
     unique_user_account_email?:  "That email address is being used by another account"
 
     list_name_uniq?: List already exists
+    movie_exists?: Movie already exists
