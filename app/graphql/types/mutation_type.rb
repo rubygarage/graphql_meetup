@@ -10,6 +10,7 @@ module Types
     field :user_create_list, mutation: Mutations::User::CreateList
     field :user_delete_list, mutation: Mutations::User::DeleteList
     field :user_add_list_item, mutation: Mutations::User::AddListItem
+    field :user_remove_list_item, mutation: Mutations::User::RemoveListItem
 
     field :refresh_token, mutation: Mutations::Auth::RefreshToken
   end
