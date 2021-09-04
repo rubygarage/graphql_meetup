@@ -3,7 +3,7 @@
 module Movie::Operation
   class RemoveFavorite < Trailblazer::Operation
     step :find_model
-    step :is_exist?
+    step :exists?
     fail :not_found
 
     step Rescue(ActiveRecord::RecordInvalid, handler: :error_handler) {
@@ -16,7 +16,7 @@ module Movie::Operation
       ctx[:model] = FavoriteMovie.find_by(movie_id: params[:movie_id], user_account_id: ctx[:current_user].id)
     end
 
-    def is_exist?(_ctx, model:, **)
+    def exists?(_ctx, model:, **)
       model.present?
     end
 

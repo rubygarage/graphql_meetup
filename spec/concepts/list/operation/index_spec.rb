@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
 describe List::Operation::Index, type: :operation do
-
   context 'when lists exist' do
     let(:lists_count) { 2 }
-    let!(:lists) { create_list(:list, lists_count) }
+
+    before do
+      create_list(:list, lists_count)
+    end
 
     it 'executes with success' do
       expect(execute_operation).to be_success

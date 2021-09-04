@@ -9,8 +9,12 @@ module Types
     description I18n.t("#{I18N_PATH}.desc")
 
     field :budget, Integer, null: true, description: I18n.t("#{I18N_PATH}.fields.budget")
-    field :is_favorite, Boolean, null: true, description: I18n.t("#{I18N_PATH}.fields.is_favorite")
-    field :is_watchlist, Boolean, null: true, description: I18n.t("#{I18N_PATH}.fields.is_watchlist")
+    field :is_favorite, Boolean, null: true,
+                                 description: I18n.t("#{I18N_PATH}.fields.is_favorite"),
+                                 resolver_method: :favorite?
+    field :is_watchlist, Boolean, null: true,
+                                  description: I18n.t("#{I18N_PATH}.fields.is_watchlist"),
+                                  resolver_method: :watchlist?
     field :original_language, String, null: true, description: I18n.t("#{I18N_PATH}.fields.original_language")
     field :original_title, String, null: true, description: I18n.t("#{I18N_PATH}.fields.original_title")
     field :overview, String, null: true, description: I18n.t("#{I18N_PATH}.fields.overview")
@@ -28,11 +32,11 @@ module Types
           null: true,
           description: I18n.t("#{I18N_PATH}.fields.poster")
 
-    def is_favorite
+    def favorite?
       ::FavoriteMovie.where(user_account_id: context[:current_user], movie_id: object.id).exists?
     end
 
-    def is_watchlist
+    def watchlist?
       ::WatchlistMovie.where(user_account_id: context[:current_user], movie_id: object.id).exists?
     end
 

@@ -17,7 +17,7 @@ module List::Operation
 
     step :set_result
 
-    def movie_exists?(ctx, params:, **)
+    def movie_exists?(_ctx, params:, **)
       Movie.exists?(id: params[:movie_id])
     end
 
